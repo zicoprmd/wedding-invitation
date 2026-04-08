@@ -1,0 +1,170 @@
+// Hero Section Styles - Soft Peach Theme
+.hero {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  background: linear-gradient(180deg, var(--color-background) 0%, var(--color-background-light) 50%, var(--color-background) 100%);
+
+  &__background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: $z-background;
+
+    &::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background:
+        radial-gradient(circle at 20% 80%, rgba(var(--color-secondary-rgb), 0.12) 0%, transparent 50%),
+        radial-gradient(circle at 80% 20%, rgba(var(--color-peach-dark-rgb), 0.1) 0%, transparent 50%),
+        radial-gradient(circle at 50% 50%, rgba(var(--color-peach-light-rgb), 0.08) 0%, transparent 70%);
+    }
+
+    &::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M50 0 L55 20 L75 20 L60 32 L66 52 L50 40 L34 52 L40 32 L25 20 L45 20 Z' fill='%23e8b4a0' fill-opacity='0.03'/%3E%3C/svg%3E");
+    }
+  }
+
+  &__particles {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    z-index: 0;
+  }
+
+  &__content {
+    position: relative;
+    z-index: $z-content;
+    text-align: center;
+    padding: $spacing-lg;
+  }
+
+  &__subtitle {
+    font-family: $font-body;
+    font-size: 0.85rem;
+    font-weight: 500;
+    letter-spacing: 0.35em;
+    text-transform: uppercase;
+    color: var(--color-secondary);
+    margin-bottom: $spacing-md;
+    opacity: 0;
+    animation: fadeInDown 1s ease 0.3s forwards;
+  }
+
+  &__title {
+    font-family: $font-heading;
+    font-size: clamp(3rem, 10vw, 7rem);
+    font-weight: 400;
+    color: var(--color-primary);
+    margin-bottom: $spacing-xs;
+    line-height: 1.1;
+
+    &--ampersand {
+      display: block;
+      font-size: clamp(2rem, 5vw, 3rem);
+      color: var(--color-secondary);
+      font-style: italic;
+      margin: $spacing-sm 0;
+    }
+  }
+
+  &__names {
+    opacity: 0;
+    animation: fadeInUp 1s ease 0.6s forwards;
+  }
+
+  &__date {
+    font-family: $font-heading;
+    font-size: clamp(1.2rem, 3vw, 1.8rem);
+    color: var(--color-text);
+    margin-top: $spacing-lg;
+    letter-spacing: 0.25em;
+    opacity: 0;
+    animation: fadeIn 1s ease 1s forwards;
+  }
+
+  &__divider {
+    width: 80px;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--color-secondary), transparent);
+    margin: $spacing-md auto;
+    opacity: 0;
+    animation: fadeIn 1s ease 0.8s forwards;
+  }
+
+  &__cta {
+    margin-top: $spacing-lg;
+    opacity: 0;
+    animation: fadeInUp 1s ease 1.2s forwards;
+  }
+
+  &__scroll {
+    position: absolute;
+    bottom: 40px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: $spacing-xs;
+    color: var(--color-text-muted);
+    font-size: 0.7rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    opacity: 0;
+    animation: fadeIn 1s ease 1.5s forwards;
+    cursor: pointer;
+    transition: color $transition-fast;
+
+    &:hover {
+      color: var(--color-secondary);
+    }
+
+    &--icon {
+      width: 22px;
+      height: 36px;
+      border: 1.5px solid currentColor;
+      border-radius: 11px;
+      position: relative;
+
+      &::before {
+        content: '';
+        position: absolute;
+        top: 6px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 3px;
+        height: 6px;
+        background: currentColor;
+        border-radius: 1.5px;
+        animation: float 2s ease-in-out infinite;
+      }
+    }
+  }
+}
+
+// Particle styles
+.particle {
+  position: absolute;
+  width: 6px;
+  height: 6px;
+  background: var(--color-secondary);
+  border-radius: 50%;
+  opacity: 0.4;
+  animation: float 8s ease-in-out infinite;
+}

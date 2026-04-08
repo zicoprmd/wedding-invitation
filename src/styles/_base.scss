@@ -1,0 +1,153 @@
+// CSS Custom Properties for theming (light mode defaults)
+:root {
+  --color-primary: #{$color-primary};
+  --color-secondary: #{$color-secondary};
+  --color-accent: #{$color-accent};
+  --color-background: #{$color-background};
+  --color-background-light: #{$color-background-light};
+  --color-text: #{$color-text};
+  --color-text-muted: #{$color-text-muted};
+  --color-white: #{$color-white};
+  --color-peach-light: #{$color-peach-light};
+  --color-peach-dark: #{$color-peach-dark};
+  --color-rose: #{$color-rose};
+  --color-cream: #{$color-cream};
+  // Colors with alpha for rgba() usage - using CSS computed values
+  --color-primary-rgb: 45, 42, 50;
+  --color-secondary-rgb: 232, 180, 160;
+  --color-peach-dark-rgb: 212, 165, 148;
+  --color-white-rgb: 255, 255, 255;
+  --color-text-muted-rgb: 138, 130, 133;
+  --color-accent-rgb: 245, 230, 224;
+  --color-peach-light-rgb: 250, 232, 225;
+  --color-background-rgb: 253, 248, 246;
+  --color-rose-rgb: 201, 160, 160;
+  --color-cream-rgb: 250, 245, 243;
+}
+
+// Dark mode overrides
+[data-theme="dark"] {
+  --color-primary: #{$color-primary-dark};
+  --color-secondary: #{$color-secondary-dark};
+  --color-accent: #{$color-accent-dark};
+  --color-background: #{$color-background-dark};
+  --color-background-light: #{$color-background-light-dark};
+  --color-text: #{$color-text-dark};
+  --color-text-muted: #{$color-text-muted-dark};
+  --color-white: #{$color-white-dark};
+  --color-peach-light: #{$color-peach-light-dark};
+  --color-peach-dark: #{$color-peach-dark-dark};
+  --color-rose: #{$color-rose-dark};
+  --color-cream: #{$color-cream-dark};
+  // Colors with alpha for dark mode - using CSS computed values
+  --color-primary-rgb: 232, 224, 220;
+  --color-secondary-rgb: 196, 150, 128;
+  --color-peach-dark-rgb: 138, 96, 80;
+  --color-white-rgb: 26, 22, 24;
+  --color-text-muted-rgb: 160, 144, 144;
+  --color-accent-rgb: 61, 53, 56;
+  --color-peach-light-rgb: 61, 53, 56;
+  --color-background-rgb: 26, 22, 24;
+  --color-rose-rgb: 160, 112, 112;
+  --color-cream-rgb: 45, 40, 42;
+}
+
+// Reset & Base
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+}
+
+body {
+  font-family: $font-body;
+  background-color: var(--color-background);
+  color: var(--color-text);
+  line-height: 1.6;
+  overflow-x: hidden;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+::selection {
+  background-color: var(--color-secondary);
+  color: var(--color-primary);
+}
+
+// Typography
+h1, h2, h3, h4, h5, h6 {
+  font-family: $font-heading;
+  font-weight: 500;
+  line-height: 1.2;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+  transition: color $transition-fast;
+
+  &:hover {
+    color: var(--color-secondary);
+  }
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+  border: none;
+  outline: none;
+}
+
+input, textarea {
+  font-family: inherit;
+  outline: none;
+}
+
+// Utility Classes
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 $spacing-md;
+}
+
+.section {
+  padding: $spacing-xl 0;
+  position: relative;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.text-secondary {
+  color: var(--color-secondary);
+}
+
+.text-accent {
+  color: var(--color-accent);
+}
+
+// Scroll reveal animation class
+.reveal {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+
+  &.revealed {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

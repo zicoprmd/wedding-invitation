@@ -1,0 +1,134 @@
+// Hello to I Do Section Styles
+.hello-to-i-do {
+  padding: $spacing-xl 0;
+  background: linear-gradient(180deg, var(--color-background) 0%, var(--color-background-light) 100%);
+  position: relative;
+  overflow: hidden;
+
+  &__header {
+    text-align: center;
+    margin-bottom: $spacing-xl;
+  }
+
+  &__subtitle {
+    font-family: $font-body;
+    font-size: 0.8rem;
+    font-weight: 500;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--color-secondary);
+    margin-bottom: $spacing-sm;
+  }
+
+  &__title {
+    font-family: $font-heading;
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    font-weight: 400;
+    color: var(--color-primary);
+  }
+
+  &__divider {
+    width: 50px;
+    height: 1px;
+    background: var(--color-secondary);
+    margin: $spacing-md auto;
+  }
+
+  &__timeline {
+    max-width: 700px;
+    margin: 0 auto;
+    position: relative;
+
+    &::before {
+      content: '';
+      position: absolute;
+      left: 50%;
+      top: 0;
+      bottom: 0;
+      width: 2px;
+      background: linear-gradient(180deg, var(--color-secondary), rgba(var(--color-secondary-rgb), 0.2));
+      transform: translateX(-50%);
+
+      @media (max-width: $breakpoint-md) {
+        left: 20px;
+      }
+    }
+  }
+
+  &__item {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: $spacing-xl;
+    position: relative;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+
+    @media (max-width: $breakpoint-md) {
+      flex-direction: row;
+      align-items: center;
+    }
+  }
+
+  &__icon {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--color-secondary) 0%, var(--color-peach-dark) 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--color-white);
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    box-shadow: 0 5px 20px rgba(var(--color-peach-dark-rgb), 0.4);
+    z-index: 1;
+
+    svg {
+      width: 24px;
+      height: 24px;
+    }
+
+    @media (max-width: $breakpoint-md) {
+      position: relative;
+      left: 20px;
+      transform: none;
+      flex-shrink: 0;
+    }
+  }
+
+  &__content {
+    width: calc(50% - 50px);
+    text-align: right;
+    padding-right: $spacing-lg;
+
+    @media (max-width: $breakpoint-md) {
+      width: calc(100% - 70px);
+      text-align: left;
+      padding-left: $spacing-md;
+      padding-right: 0;
+    }
+  }
+
+  &__item-title {
+    font-family: $font-heading;
+    font-size: 1.3rem;
+    color: var(--color-primary);
+    margin-bottom: $spacing-xs;
+  }
+
+  &__date {
+    font-size: 0.9rem;
+    color: var(--color-secondary);
+    font-weight: 600;
+    margin-bottom: $spacing-xs;
+  }
+
+  &__description {
+    font-size: 0.95rem;
+    color: var(--color-text-muted);
+    font-style: italic;
+  }
+}

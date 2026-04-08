@@ -1,0 +1,55 @@
+// Color Palette - Soft Peach & Elegant
+$color-primary: #2d2a32;
+$color-secondary: #e8b4a0;
+$color-accent: #f5e6e0;
+$color-background: #fdf8f6;
+$color-background-light: #f9ebe5;
+$color-text: #4a4548;
+$color-text-muted: #8a8285;
+$color-white: #ffffff;
+$color-peach-light: #fae8e1;
+$color-peach-dark: #d4a594;
+$color-rose: #c9a0a0;
+$color-cream: #faf5f3;
+
+// Dark Mode Color Palette
+$color-primary-dark: #e8e0dc;
+$color-secondary-dark: #c49680;
+$color-accent-dark: #3d3538;
+$color-background-dark: #1a1618;
+$color-background-light-dark: #2d282a;
+$color-text-dark: #f0e8e4;
+$color-text-muted-dark: #a09090;
+$color-white-dark: #1a1618;
+$color-peach-light-dark: #3d3538;
+$color-peach-dark-dark: #8a6050;
+$color-rose-dark: #a07070;
+$color-cream-dark: #2d282a;
+
+// Typography
+$font-heading: 'Cormorant Garamond', Georgia, serif;
+$font-body: 'Quicksand', 'Segoe UI', sans-serif;
+
+// Spacing
+$spacing-xs: 0.5rem;
+$spacing-sm: 1rem;
+$spacing-md: 2rem;
+$spacing-lg: 4rem;
+$spacing-xl: 6rem;
+
+// Breakpoints
+$breakpoint-sm: 576px;
+$breakpoint-md: 768px;
+$breakpoint-lg: 992px;
+$breakpoint-xl: 1200px;
+
+// Transitions
+$transition-fast: 0.3s ease;
+$transition-normal: 0.5s ease;
+$transition-slow: 0.8s ease;
+
+// Z-index
+$z-background: -1;
+$z-content: 1;
+$z-nav: 100;
+$z-modal: 1000;

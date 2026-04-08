@@ -1,0 +1,223 @@
+// Invitation / Cover Section Styles
+.invitation {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, var(--color-background) 0%, var(--color-background-light) 100%);
+  transition: opacity 0.8s ease, visibility 0.8s ease;
+
+  &.hidden {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+  }
+
+  &__bg {
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+
+    &::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background:
+        radial-gradient(circle at 30% 70%, rgba(var(--color-secondary-rgb), 0.15) 0%, transparent 50%),
+        radial-gradient(circle at 70% 30%, rgba(var(--color-peach-dark-rgb), 0.1) 0%, transparent 50%);
+      animation: gentleFloat 20s ease-in-out infinite;
+    }
+
+    &::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23e8b4a0' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    }
+  }
+
+  &__content {
+    position: relative;
+    z-index: 1;
+    text-align: center;
+    padding: $spacing-lg;
+    max-width: 600px;
+  }
+
+  &__ornament {
+    margin-bottom: $spacing-md;
+
+    svg {
+      width: 80px;
+      height: auto;
+      color: var(--color-secondary);
+      opacity: 0.8;
+    }
+  }
+
+  &__subtitle {
+    font-family: $font-body;
+    font-size: 0.8rem;
+    font-weight: 500;
+    letter-spacing: 0.4em;
+    text-transform: uppercase;
+    color: var(--color-secondary);
+    margin-bottom: $spacing-sm;
+    opacity: 0;
+    animation: fadeInUp 1s ease 0.3s forwards;
+  }
+
+  &__title {
+    font-family: $font-heading;
+    font-size: clamp(2.5rem, 8vw, 4.5rem);
+    font-weight: 400;
+    color: var(--color-primary);
+    line-height: 1.1;
+    margin-bottom: $spacing-xs;
+    opacity: 0;
+    animation: fadeInUp 1s ease 0.5s forwards;
+
+    &--ampersand {
+      display: block;
+      font-size: clamp(1.5rem, 4vw, 2.5rem);
+      color: var(--color-secondary);
+      font-style: italic;
+      margin: $spacing-xs 0;
+    }
+  }
+
+  &__from {
+    font-family: $font-body;
+    font-size: 0.85rem;
+    color: var(--color-text-muted);
+    letter-spacing: 0.2em;
+    margin-top: $spacing-lg;
+    margin-bottom: $spacing-xs;
+    opacity: 0;
+    animation: fadeInUp 1s ease 0.8s forwards;
+  }
+
+  &__to {
+    font-family: $font-body;
+    font-size: 0.85rem;
+    color: var(--color-text-muted);
+    letter-spacing: 0.2em;
+    margin-top: $spacing-lg;
+    margin-bottom: $spacing-xs;
+    opacity: 0;
+    animation: fadeInUp 1s ease 0.6s forwards;
+  }
+
+  &__guest-name {
+    font-family: $font-heading;
+    font-size: 1.5rem;
+    font-style: italic;
+    color: var(--color-primary);
+    margin-bottom: $spacing-sm;
+    opacity: 0;
+    animation: fadeInUp 1s ease 0.7s forwards;
+  }
+
+  &__parents {
+    font-family: $font-heading;
+    font-size: 1.1rem;
+    font-style: italic;
+    color: var(--color-text);
+    margin-bottom: $spacing-lg;
+    opacity: 0;
+    animation: fadeInUp 1s ease 1s forwards;
+  }
+
+  &__divider {
+    width: 60px;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--color-secondary), transparent);
+    margin: $spacing-md auto;
+    opacity: 0;
+    animation: fadeIn 1s ease 1.2s forwards;
+  }
+
+  &__date {
+    font-family: $font-body;
+    font-size: 1rem;
+    color: var(--color-text);
+    letter-spacing: 0.15em;
+    opacity: 0;
+    animation: fadeInUp 1s ease 1.4s forwards;
+  }
+
+  &__cta {
+    margin-top: $spacing-xl;
+    opacity: 0;
+    animation: fadeInUp 1s ease 1.6s forwards;
+  }
+
+  &__button {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 1rem 2.5rem;
+    font-size: 0.85rem;
+    font-weight: 600;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--color-white);
+    background: linear-gradient(135deg, var(--color-secondary) 0%, var(--color-peach-dark) 100%);
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all $transition-normal;
+    box-shadow: 0 10px 30px rgba(var(--color-peach-dark-rgb), 0.4);
+
+    &:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 15px 40px rgba(var(--color-peach-dark-rgb), 0.5);
+    }
+
+    svg {
+      width: 18px;
+      height: 18px;
+      transition: transform $transition-fast;
+    }
+
+    &:hover svg {
+      transform: translateX(3px);
+    }
+  }
+
+  &__footer {
+    position: absolute;
+    bottom: $spacing-lg;
+    left: 0;
+    right: 0;
+    text-align: center;
+    font-size: 0.75rem;
+    color: var(--color-text-muted);
+    letter-spacing: 0.1em;
+    opacity: 0;
+    animation: fadeIn 1s ease 2s forwards;
+  }
+}
+
+@keyframes gentleFloat {
+  0%, 100% {
+    transform: translate(0, 0) rotate(0deg);
+  }
+  25% {
+    transform: translate(2%, 2%) rotate(1deg);
+  }
+  50% {
+    transform: translate(0, 4%) rotate(0deg);
+  }
+  75% {
+    transform: translate(-2%, 2%) rotate(-1deg);
+  }
+}

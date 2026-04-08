@@ -1,0 +1,17 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npm run:*)",
+      "Bash(curl -sI \"https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Raleway:wght@300;400;500;600;700&display=swap\")",
+      "Bash(curl -sI \"https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop&crop=face\")",
+      "Bash(curl -sI \"https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=400&h=400&fit=crop&crop=face\")",
+      "Bash(mv src/components/* .)",
+      "Bash(rmdir src/components)",
+      "Bash(pkill -f \"vite\")",
+      "Bash(curl -sI \"https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Quicksand:wght@300;400;500;600;700&display=swap\")",
+      "Bash(xxd -l 200 src/components/EventDetails.jsx)",
+      "Bash(curl -s \"http://localhost:5174/src/main.jsx\")",
+      "Bash(netstat -ano)"
+    ]
+  }
+}

@@ -1,0 +1,114 @@
+.audio-player {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 1000;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.4s ease;
+  pointer-events: none;
+
+  &--visible {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: all;
+  }
+
+  &__btn {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 12px 18px;
+    background: linear-gradient(135deg, rgba(var(--color-primary-rgb), 0.95) 0%, rgba(var(--color-secondary-rgb), 0.95) 100%);
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    box-shadow: 0 8px 25px rgba(var(--color-peach-dark-rgb), 0.3);
+    transition: all $transition-normal;
+
+    &:hover {
+      transform: scale(1.05);
+      box-shadow: 0 12px 35px rgba(var(--color-peach-dark-rgb), 0.4);
+    }
+  }
+
+  &__icon {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: rgba(var(--color-white-rgb), 0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--color-white);
+    transition: all 0.3s ease;
+
+    svg {
+      margin-left: 2px;
+    }
+  }
+
+  &__btn--playing &__icon {
+    animation: pulse 1.5s ease-in-out infinite;
+  }
+
+  &__label {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--color-white);
+    letter-spacing: 0.05em;
+  }
+
+  &__bars {
+    display: flex;
+    align-items: flex-end;
+    gap: 3px;
+    height: 20px;
+    margin-left: 5px;
+
+    span {
+      width: 3px;
+      background: var(--color-white);
+      border-radius: 2px;
+      opacity: 0.5;
+      transition: all 0.3s ease;
+    }
+
+    span:nth-child(1) { height: 8px; }
+    span:nth-child(2) { height: 14px; }
+    span:nth-child(3) { height: 10px; }
+    span:nth-child(4) { height: 18px; }
+  }
+
+  &__bars--playing {
+    span {
+      opacity: 1;
+      animation: audioBar 0.8s ease-in-out infinite;
+
+      &:nth-child(1) { animation-delay: 0s; }
+      &:nth-child(2) { animation-delay: 0.2s; }
+      &:nth-child(3) { animation-delay: 0.4s; }
+      &:nth-child(4) { animation-delay: 0.1s; }
+    }
+  }
+}
+
+@keyframes audioBar {
+  0%, 100% {
+    transform: scaleY(0.5);
+  }
+  50% {
+    transform: scaleY(1);
+  }
+}
+
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(1);
+    box-shadow: 0 0 0 0 rgba(var(--color-white-rgb), 0.4);
+  }
+  50% {
+    transform: scale(1.05);
+    box-shadow: 0 0 0 10px rgba(var(--color-white-rgb), 0);
+  }
+}

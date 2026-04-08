@@ -1,0 +1,87 @@
+// Footer Styles - Soft Peach Theme
+.footer {
+  padding: $spacing-xl 0 $spacing-lg;
+  background: var(--color-background);
+  text-align: center;
+  position: relative;
+
+  &__logo {
+    font-family: $font-heading;
+    font-size: 2.2rem;
+    color: var(--color-primary);
+    margin-bottom: $spacing-md;
+    letter-spacing: 0.05em;
+
+    span {
+      color: var(--color-secondary);
+    }
+  }
+
+  &__names {
+    font-family: $font-heading;
+    font-size: 1.6rem;
+    color: var(--color-text);
+    margin-bottom: $spacing-xs;
+  }
+
+  &__date {
+    font-size: 0.95rem;
+    color: var(--color-secondary);
+    letter-spacing: 0.2em;
+    margin-bottom: $spacing-lg;
+  }
+
+  &__divider {
+    width: 80px;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--color-secondary), transparent);
+    margin: 0 auto $spacing-lg;
+  }
+
+  &__social {
+    display: flex;
+    justify-content: center;
+    gap: $spacing-md;
+    margin-bottom: $spacing-lg;
+  }
+
+  &__social-link {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    border: 1.5px solid rgba(var(--color-secondary-rgb), 0.4);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--color-text);
+    font-size: 1.1rem;
+    transition: all $transition-fast;
+
+    &:hover {
+      background: var(--color-secondary);
+      border-color: var(--color-secondary);
+      color: var(--color-white);
+      transform: translateY(-3px);
+      box-shadow: 0 8px 20px rgba(var(--color-peach-dark-rgb), 0.3);
+    }
+  }
+
+  &__copyright {
+    font-size: 0.85rem;
+    color: var(--color-text-muted);
+
+    a {
+      color: var(--color-secondary);
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+
+  &__heart {
+    color: var(--color-secondary);
+    display: inline-block;
+    animation: pulse 1.5s ease-in-out infinite;
+  }
+}

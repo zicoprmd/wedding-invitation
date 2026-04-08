@@ -1,0 +1,150 @@
+// Live Streaming Styles
+.live-streaming {
+  position: fixed;
+  bottom: 100px;
+  right: 20px;
+  z-index: 900;
+  width: 400px;
+  max-width: calc(100vw - 40px);
+  background: var(--color-white);
+  border-radius: 16px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
+  overflow: hidden;
+  animation: slideInUp 0.4s ease;
+
+  &__container {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 16px;
+    background: linear-gradient(135deg, var(--color-secondary) 0%, var(--color-peach-dark) 100%);
+    color: var(--color-white);
+  }
+
+  &__status {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  &__indicator {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: var(--color-text-muted);
+
+    &.live {
+      background: #ff4444;
+      animation: pulse 1.5s ease-in-out infinite;
+    }
+
+    &.idle {
+      background: #888;
+    }
+  }
+
+  &__status-text {
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+  }
+
+  &__viewers {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 0.8rem;
+    opacity: 0.9;
+
+    svg {
+      opacity: 0.8;
+    }
+  }
+
+  &__video-container {
+    position: relative;
+    width: 100%;
+    padding-top: 56.25%; // 16:9 aspect ratio
+    background: #000;
+  }
+
+  &__iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: none;
+  }
+
+  &__placeholder {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--color-background);
+    color: var(--color-text-muted);
+    font-size: 0.9rem;
+  }
+
+  &__controls {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 16px;
+    background: var(--color-background-light);
+    border-top: 1px solid rgba(0, 0, 0, 0.05);
+  }
+
+  &__btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    padding: 8px 16px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--color-white);
+    background: var(--color-primary);
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all $transition-fast;
+
+    &:hover {
+      background: var(--color-text);
+      transform: translateY(-1px);
+    }
+
+    svg {
+      width: 16px;
+      height: 16px;
+    }
+  }
+
+  @media (max-width: $breakpoint-md) {
+    width: calc(100vw - 32px);
+    bottom: 80px;
+    right: 16px;
+  }
+}
+
+@keyframes slideInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
