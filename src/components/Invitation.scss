@@ -50,6 +50,30 @@
     text-align: center;
     padding: $spacing-lg;
     max-width: 600px;
+    width: 100%;
+    max-height: 100vh;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    // Safe area for mobile devices
+    padding-top: max($spacing-lg, env(safe-area-inset-top));
+    padding-bottom: max($spacing-lg, calc(env(safe-area-inset-bottom) + 80px));
+
+    @media (max-height: 600px) {
+      padding: $spacing-md;
+      justify-content: flex-start;
+    }
+
+    @media (max-width: $breakpoint-sm) {
+      padding: $spacing-md;
+      padding-bottom: calc($spacing-md + 80px);
+    }
+
+    @media (max-height: 600px) {
+      padding-bottom: calc($spacing-sm + 60px);
+    }
   }
 
   &__ornament {
@@ -155,16 +179,24 @@
   }
 
   &__cta {
-    margin-top: $spacing-xl;
+    margin-top: $spacing-lg;
     opacity: 0;
     animation: fadeInUp 1s ease 1.6s forwards;
+
+    @media (max-width: $breakpoint-sm) {
+      margin-top: $spacing-md;
+      padding-bottom: env(safe-area-inset-bottom, 20px);
+    }
   }
 
   &__button {
     display: inline-flex;
     align-items: center;
+    justify-content: center;
     gap: 0.75rem;
     padding: 1rem 2.5rem;
+    min-height: 54px;
+    min-width: 200px;
     font-size: 0.85rem;
     font-weight: 600;
     letter-spacing: 0.15em;
@@ -176,16 +208,28 @@
     cursor: pointer;
     transition: all $transition-normal;
     box-shadow: 0 10px 30px rgba(var(--color-peach-dark-rgb), 0.4);
+    -webkit-tap-highlight-color: transparent;
+    touch-action: manipulation;
+
+    @media (max-width: $breakpoint-sm) {
+      padding: 1.25rem 2rem;
+      font-size: 0.8rem;
+    }
 
     &:hover {
       transform: translateY(-3px);
       box-shadow: 0 15px 40px rgba(var(--color-peach-dark-rgb), 0.5);
     }
 
+    &:active {
+      transform: translateY(-1px);
+    }
+
     svg {
       width: 18px;
       height: 18px;
       transition: transform $transition-fast;
+      flex-shrink: 0;
     }
 
     &:hover svg {
