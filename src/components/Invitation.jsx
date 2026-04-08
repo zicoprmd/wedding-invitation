@@ -45,13 +45,13 @@ const Invitation = ({ onOpen }) => {
           {config.couple.brideName}
         </h1>
 
-        <div className="invitation__divider"></div>
+        {/* <div className="invitation__divider"></div> */}
 
         {guestName && (
           <>
             <p className="invitation__to">To</p>
             <p className="invitation__guest-name">{guestName}</p>
-            <div className="invitation__divider"></div>
+            {/* <div className="invitation__divider"></div> */}
           </>
         )}
 
